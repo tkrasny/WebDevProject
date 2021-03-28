@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap");
+
+#FooterBar {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: -10px;
+    margin-right: -20px;
+    margin-left: -20px;
+    background-color: DodgerBlue;
+    font-family: "Oswald";
+    align-items: center;
+}
+
+.about {
+    padding-left: 30px;
+    padding-bottom: 20px;
+    flex-basis: 40%;
+}
+
+.subscribe{
+    margin: 40px;
+    flex-basis:20%;
+    padding-right: 10px;
+}

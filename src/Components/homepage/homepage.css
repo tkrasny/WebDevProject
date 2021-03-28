@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap");
+
+#homepage {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    background-color: LightGrey;
+    font-family: Oswald;
+    margin-top: -10px;
+    margin-right: -20px;
+    margin-left: -20px;
+    padding-left: 30px;
+}
+.container {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.container_1 {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    text-align: center;
+}
+.container_2 {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    max-width: 100%;
+    max-height: 100%;
+}
+.container_3 {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+.container_4 {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    text-align: center;
+}
+.container_5 {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    text-align: center;
+}
+.container_6 {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.myButton{
+    font-family: "Oswald";
+    color: white;
+    background: dodgerblue;
+    position: relative;
+    top: 50%;
+    padding: 25px;
+    text-align: center;
+    font-size: 25px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.myButton:hover{
+    background: aqua;
+}

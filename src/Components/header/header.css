@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap");
+
+#HeaderBar {
+    display: flex;
+    flex-direction: row;
+    margin-top: -10px;
+    margin-right: -20px;
+    margin-left: -20px;
+    background-color: DodgerBlue;
+    font-family: "Oswald";
+    align-items: center;
+}
+
+.title {
+    padding-left: 30px;
+    flex-basis: 65%;
+}
+
+.search{
+    margin: 40px;
+    flex-basis:20%;
+    padding-right: 10px;
+}
+
+.login{
+    flex-basis: 10%;
+    color: white;
+    font-size: 25px;
+    background: dodgerblue;
+    cursor: pointer;
+    text-align: center;
+    font-family: "Oswald";
+    border-radius: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.login:hover{
+    background: aqua;
+}
