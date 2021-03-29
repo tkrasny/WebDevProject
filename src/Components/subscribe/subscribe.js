@@ -15,13 +15,10 @@ export function Subscribe() {
         });
     }, []);
 
-    // Flags in the state to watch for add/remove updates
     const [add, setAdd] = useState(false);
     const [remove, setRemove] = useState("");
 
-    // UseEffect that runs when changes
-    // are made to the state variables/flags
-
+    // TODO: Validate input to verify it's a valid email address
     useEffect(() => {
         // Check for add flag and make sure name state variable is defined
         if (email && add) {
@@ -30,6 +27,7 @@ export function Subscribe() {
                 // Add the newly created lesson to the lessons array
                 // to render the new list of lessons (thru spread/concatenation)
                 setSubscribers([...subscribers, newSubscriber]);
+                alert("Successfully subscribed email address")
             });
         }
     }, [email, subscribers, add]);

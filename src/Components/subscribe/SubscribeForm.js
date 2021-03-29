@@ -6,9 +6,9 @@ import ".././footer/footer.css"
 const SubscribeForm = ({ onClick, onChange }) => {
     return (
         <header className="footerBar">
-            <form onClick={onClick}>
-                <input className="search" placeholder="Subscribe"
-                       onChange={onChange}/>
+            <form>
+                <input className="subscribe" placeholder="Subscribe" onChange={onChange}/>
+                <button className="submit" type="submit" onClick={onClick}>Submit</button>
             </form>
         </header>
     );

@@ -22,3 +22,7 @@
     flex-basis:20%;
     padding-right: 10px;
 }
+
+.submit{
+    visibility: hidden;
+}
