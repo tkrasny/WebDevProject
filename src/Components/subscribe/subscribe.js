@@ -5,7 +5,6 @@ import SubscribeForm from "./SubscribeForm";
 
 export function Subscribe() {
     const [subscribers, setSubscribers] = useState([]);
-    const [subscriber, setSubscriber] = useState([]);
     const [email, setEmail] = useState();
 
     useEffect(() => {
@@ -16,9 +15,8 @@ export function Subscribe() {
     }, []);
 
     const [add, setAdd] = useState(false);
-    const [remove, setRemove] = useState("");
 
-    // TODO: Validate input to verify it's a valid email address
+    // TODO: Validate input to verify it's a valid email address, add ability to remove
     useEffect(() => {
         // Check for add flag and make sure name state variable is defined
         if (email && add) {
@@ -42,7 +40,6 @@ export function Subscribe() {
     const onChangeHandler = (e) => {
         e.preventDefault();
         console.log(e.target.value);
-        // Continuously updating name to be added on submit
         setEmail(e.target.value);
     };
 
