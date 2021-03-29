@@ -13,8 +13,6 @@ export function Homepage() {
     }
 
     {/* TODO: Improve quality of images, ensure copyright free */}
-    const faqImgPath= './homepage/question.png'
-
 
     {/* Displays the main body of the home page as a css grid*/}
     return (
