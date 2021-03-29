@@ -1,16 +1,57 @@
 import React, { useEffect, useState } from "react";
 import ".././footer/footer.css"
-
+import { createSubscriber, getAllSubscribers } from "../../Common/Services/SubscriptionService";
 import SubscribeForm from "./SubscribeForm";
 
 export function Subscribe() {
-    const [email, setEmail] = useState([]);
+    const [subscribers, setSubscribers] = useState([]);
+    const [subscriber, setSubscriber] = useState([]);
+    const [email, setEmail] = useState();
 
-    {/* TODO: Index information on website to allow searching to return something */}
     // Handler to handle event passed from child submit button
     const onClickHandler = (e) => {
         e.preventDefault();
     };
+
+    useEffect(() => {
+        getAllSubscribers().then((subscribers) => {
+            console.log(subscribers);
+            setSubscribers(subscribers);
+        });
+    }, []);
+
+    // Flags in the state to watch for add/remove updates
+    const [add, setAdd] = useState(false);
+    const [remove, setRemove] = useState("");
+
+    // UseEffect that runs when changes
+    // are made to the state variables/flags
+
+    /*useEffect(() => {
+        // Check for add flag and make sure name state variable is defined
+        if (email && add) {
+            createSubscriber(email).then((newSubscriber) => {
+                setAdd(false);
+                // Add the newly created lesson to the lessons array
+                // to render the new list of lessons (thru spread/concatenation)
+                setSubscribers([...subscribers, newSubscriber]);
+            });
+        }
+
+        if (remove.length > 0) {
+            //Filter the old lessons list to take out selected lesson
+            const newSubscribers = subscribers.filter((subscriber) => subscriber.id !== remove);
+            setSubscribers(newSubscribers);
+
+            removeSubscriber(remove).then(() => {
+                console.log("Removed lesson with ID: ", remove);
+            });
+            // Reset remove state variable
+            setRemove("");
+        }
+
+
+    }*/
 
     // Handler to track changes to the child input text
     const onChangeHandler = (e) => {
