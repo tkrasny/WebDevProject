@@ -8,11 +8,6 @@ export function Subscribe() {
     const [subscriber, setSubscriber] = useState([]);
     const [email, setEmail] = useState();
 
-    // Handler to handle event passed from child submit button
-    const onClickHandler = (e) => {
-        e.preventDefault();
-    };
-
     useEffect(() => {
         getAllSubscribers().then((subscribers) => {
             console.log(subscribers);
@@ -27,7 +22,7 @@ export function Subscribe() {
     // UseEffect that runs when changes
     // are made to the state variables/flags
 
-    /*useEffect(() => {
+    useEffect(() => {
         // Check for add flag and make sure name state variable is defined
         if (email && add) {
             createSubscriber(email).then((newSubscriber) => {
@@ -37,21 +32,13 @@ export function Subscribe() {
                 setSubscribers([...subscribers, newSubscriber]);
             });
         }
+    }, [email, subscribers, add]);
 
-        if (remove.length > 0) {
-            //Filter the old lessons list to take out selected lesson
-            const newSubscribers = subscribers.filter((subscriber) => subscriber.id !== remove);
-            setSubscribers(newSubscribers);
-
-            removeSubscriber(remove).then(() => {
-                console.log("Removed lesson with ID: ", remove);
-            });
-            // Reset remove state variable
-            setRemove("");
-        }
-
-
-    }*/
+    // Handler to handle event passed from child submit button
+    const onClickHandler = (e) => {
+        e.preventDefault();
+        setAdd(true);
+    };
 
     // Handler to track changes to the child input text
     const onChangeHandler = (e) => {

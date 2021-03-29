@@ -7,7 +7,7 @@ export const createSubscriber = (email) => {
     const Subscriber = Parse.Object.extend("Subscriber");
     const subscriber = new Subscriber();
     // using setter to UPDATE the object
-    Subscriber.set("email", email);
+    subscriber.set("email", email);
     return subscriber.save().then((result) => {
         // returns new Subscriber object
         return result;
@@ -25,7 +25,7 @@ export const getAllSubscribers = () => {
 };
 
 // DELETE operation - remove lesson by ID
-export const removeLesson = (id) => {
+export const removeSubscriber = (id) => {
     const Lesson = Parse.Object.extend("Lesson");
     const query = new Parse.Query(Lesson);
     return query.get(id).then((lesson) => {
