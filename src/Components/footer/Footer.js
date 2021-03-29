@@ -1,16 +1,23 @@
 import React from "react";
-import "./footer.css"
+import "./footer.css";
+import { useHistory } from "react-router-dom";
+import AboutButton from "./aboutButton.js";
+
 
 import Subscribe from "../subscribe/subscribe.js";
 
 export function Footer() {
+    const history = useHistory();
 
-    {/* TODO: Convert "about" to reroute to an informational page */}
+    const onClickHandler = () => {
+        let path = '/about';
+        history.push(path);
+    };
 
     return (
         <div id="FooterBar">
             <footer class="FooterBar about">
-                <h1>About</h1>
+                <AboutButton onClick={onClickHandler} />
             </footer>
             <Subscribe />
         </div>
