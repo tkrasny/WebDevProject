@@ -4,15 +4,15 @@ import Homepage from "./homepage/homepage.js";
 import Footer from "./footer/Footer.js";
 import About from "./about/about.js";
 import Schedule from "./slate/schedule.js";
+import Analysis from "./analysis/analysis.js";
+import FAQ from "./faq/faq.js";
 import "../index.css";
 
 import {
     BrowserRouter as Router,
     Switch,
-    Route,
-    Link
+    Route
 } from "react-router-dom";
-
 
 const Components = () => {
     return (
@@ -28,6 +28,12 @@ const Components = () => {
                     </Route>
                     <Route path="/schedule">
                         <Schedule />
+                    </Route>
+                    <Route path="/faq">
+                        <FAQ />
+                    </Route>
+                    <Route path="/analysis">
+                        <Analysis />
                     </Route>
                 </Switch>
                 <Footer />

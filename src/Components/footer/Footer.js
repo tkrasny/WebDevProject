@@ -3,7 +3,6 @@ import "./footer.css";
 import { useHistory } from "react-router-dom";
 import AboutButton from "./aboutButton.js";
 
-
 import Subscribe from "../subscribe/subscribe.js";
 
 export function Footer() {

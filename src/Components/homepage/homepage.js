@@ -5,11 +5,25 @@ import analysisImg from "./analysis1.jpg"
 import scheduleImg from "./calendar.png"
 import faqImg from "./question.png"
 
-export function Homepage() {
+import { useHistory } from "react-router-dom";
 
-    function redirectAnalysis(){
-        {/* TODO - build out more pages as more features are possible */}
-        window.location.href=window.location.href
+
+export function Homepage() {
+    const history = useHistory();
+
+    const onClickAnalysis = () => {
+        let path = '/analysis';
+        history.push(path);
+    }
+
+    const onClickSchedule = () => {
+        let path = '/schedule';
+        history.push(path);
+    }
+
+    const onClickFAQ = () => {
+        let path = '/faq'
+        history.push(path);
     }
 
     {/* TODO: Improve quality of images, ensure copyright free */}
@@ -18,7 +32,7 @@ export function Homepage() {
     return (
     <main id="homepage">
         <div class="container container_1">
-            <button onClick={redirectAnalysis} class="myButton">Analysis & Recommendations</button>
+            <button onClick={onClickAnalysis} class="myButton">Analysis & Recommendations</button>
         </div>
         <div class="container container_2">
             <figure>
@@ -31,10 +45,10 @@ export function Homepage() {
             </figure>
         </div>
         <div class="container container_4">
-            <button onClick={redirectAnalysis} class="myButton">Schedule</button>
+            <button onClick={onClickSchedule} class="myButton">Schedule</button>
         </div>
         <div class="container container_5">
-            <button onClick={redirectAnalysis} class="myButton">Frequently Asked Questions</button>
+            <button onClick={onClickFAQ} class="myButton">Frequently Asked Questions</button>
         </div>
         <div class="container container_6">
             <figure>
