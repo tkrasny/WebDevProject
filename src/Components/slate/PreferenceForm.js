@@ -5,15 +5,15 @@ const PreferenceForm = ({ onSubmit }) => {
     return (
         <form className="prefForm" onSubmit={onSubmit}>
             <label htmlFor="myname">Enter username</label>
-            <input id="myname" name="myname" type="text" />
+            <input id="myname" name="myname" type="text" /><br />
 
             <label htmlFor="sport">Enter your favorite sport</label>
-            <input id="sport" name="sport" type="text" />
+            <input id="sport" name="sport" type="text" /><br />
 
             <label htmlFor="team">Enter your favorite team</label>
-            <input id="team" name="team" type="text" />
+            <input id="team" name="team" type="text" /><br />
 
-            <button>Send data!</button>
+            <button>Set Preferences!</button>
         </form>
     );
 };

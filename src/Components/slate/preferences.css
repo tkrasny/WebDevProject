@@ -4,3 +4,12 @@
     font-family: "Oswald";
     font-size: 30px;
 }
+
+label{
+    padding-right: 10px;
+}
+
+button{
+    font-family: "Oswald";
+    font-size: 20px;
+}
