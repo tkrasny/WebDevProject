@@ -4,6 +4,7 @@ import Homepage from "./homepage/homepage.js";
 import Footer from "./footer/Footer.js";
 import About from "./about/about.js";
 import Schedule from "./slate/schedule.js";
+import "../index.css";
 
 import {
     BrowserRouter as Router,
@@ -16,7 +17,7 @@ import {
 const Components = () => {
     return (
         <Router>
-            <div>
+            <div id="app">
                 <Header />
                 <Switch>
                     <Route exact path="/">

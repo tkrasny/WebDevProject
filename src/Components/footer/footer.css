@@ -8,21 +8,39 @@
     margin-left: -20px;
     background-color: DodgerBlue;
     font-family: "Oswald";
-    align-items: center;
+    justify-content: center;
+    align-content: center;
 }
 
 .about {
     padding-left: 30px;
     padding-bottom: 20px;
-    flex-basis: 40%;
+    flex-basis: 45%;
 }
 
-.subscribe{
-    margin: 40px;
-    flex-basis:20%;
+.subscribe {
+    margin: 20px;
+    flex-basis:55%;
     padding-right: 10px;
 }
 
-.submit{
+.submit {
     visibility: hidden;
+}
+
+.aboutButton{
+    margin: 20px;
+    color: white;
+    font-size: 25px;
+    background: dodgerblue;
+    cursor: pointer;
+    text-align: center;
+    font-family: "Oswald";
+    border-radius: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.aboutButton:hover{
+    background: aqua;
 }

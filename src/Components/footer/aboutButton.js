@@ -1,9 +1,10 @@
 import React from "react";
+import ".././footer/footer.css"
 
 const AboutButton = ({onClick}) => {
     return (
         <form>
-            <button onClick={onClick}>About</button>
+            <button className="aboutButton" onClick={onClick}>About</button>
         </form>
     );
 };
