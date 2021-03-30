@@ -4,7 +4,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    background-color: LightGrey;
+    background-color: #F5F3F4;
     font-family: Oswald;
     margin-top: -10px;
     margin-right: -20px;
@@ -67,7 +67,7 @@
 .myButton{
     font-family: "Oswald";
     color: white;
-    background: dodgerblue;
+    background: #A4161A;
     position: relative;
     top: 50%;
     padding: 25px;
@@ -78,5 +78,5 @@
 }
 
 .myButton:hover{
-    background: aqua;
+    background: #BA181B;
 }
