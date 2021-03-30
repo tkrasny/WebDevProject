@@ -8,7 +8,8 @@ import Subscribe from "../subscribe/subscribe.js";
 export function Footer() {
     const history = useHistory();
 
-    const onClickHandler = () => {
+    const onClickHandler = (e) => {
+        e.preventDefault()
         let path = '/about';
         history.push(path);
     };
