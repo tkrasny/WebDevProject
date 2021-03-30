@@ -1,8 +1,8 @@
 import React from "react";
 import ".././header/header.css"
+import axios from 'axios';
 
 export function Login() {
-    const axios = window.axios
 
     function createUser(){
         {/* TODO: Implement login/account management */}
