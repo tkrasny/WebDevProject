@@ -1,7 +1,6 @@
 import Parse from "parse";
-/* SERVICE FOR PARSE SERVER OPERATIONS */
 
-// CREATE operation - new lesson with Name
+// CREATE operation - new subscriber with email
 export const createSubscriber = (email) => {
     console.log("Creating: ", email);
     const Subscriber = Parse.Object.extend("Subscriber");
@@ -14,7 +13,7 @@ export const createSubscriber = (email) => {
     });
 };
 
-// READ operation - get all lessons in Parse class Lesson
+// READ operation - get all lessons in Parse class Subscriber
 export const getAllSubscribers = () => {
     const Subscriber = Parse.Object.extend("Subscriber");
     const query = new Parse.Query(Subscriber);
@@ -24,7 +23,7 @@ export const getAllSubscribers = () => {
     });
 };
 
-// DELETE operation - remove lesson by ID
+// DELETE operation - remove subscriber by ID (Currently not implemented)
 export const removeSubscriber = (id) => {
     const Lesson = Parse.Object.extend("Lesson");
     const query = new Parse.Query(Lesson);

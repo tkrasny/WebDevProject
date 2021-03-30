@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import Login from "../login/login";
+import React from "react";
 
 import ".././footer/footer.css"
 
