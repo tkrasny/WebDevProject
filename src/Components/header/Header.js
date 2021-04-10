@@ -4,9 +4,10 @@ import Login from ".././login/login.js";
 import Search from ".././search/search.js";
 import HeaderButton from "./headerButton.js";
 
-import { useHistory } from "react-router-dom";
+import { useHistory, Link} from "react-router-dom";
 
 import "./header.css"
+import profImg from "./profile.png"
 
 export function Header() {
     const history = useHistory();
@@ -24,6 +25,13 @@ export function Header() {
             </header>
             <Search />
             <Login />
+            <div className="headerBar profile">
+                <figure>
+                    <Link to="/profile">
+                        <img src={profImg} className="profile" alt="prof"/>
+                    </Link>
+                </figure>
+            </div>
         </div>
     );
 };
