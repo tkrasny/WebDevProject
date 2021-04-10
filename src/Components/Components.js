@@ -9,6 +9,7 @@ import FAQ from "./faq/faq.js";
 import AuthRegister from "../Common/Services/Auth/AuthRegister"
 import RegisterForm from "../Common/Services/Auth/RegisterForm";
 import "../index.css";
+import ProtectedRoute from "../Common/AppTools/ProtectedRoute";
 
 import {
     BrowserRouter as Router,
@@ -43,6 +44,12 @@ const Components = () => {
                     <Route path="/register">
                         <RegisterForm />
                     </Route>
+                    <Route path="/register">
+                        <RegisterForm />
+                    </Route>
+                    <ProtectedRoute path="/profile">
+                        <Analysis />
+                    </ProtectedRoute>
                 </Switch>
                 <Footer />
             </div>

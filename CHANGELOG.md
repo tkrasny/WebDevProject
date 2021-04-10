@@ -12,3 +12,4 @@
 * Added authentication, including protected routes and a sign-in screen
 * Better defined relation between data classes
 * Added User class to work with authentication
+* Added profile page, which is a protected route
