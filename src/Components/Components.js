@@ -9,8 +9,8 @@ import FAQ from "./faq/faq.js";
 import AuthRegister from "../Common/Services/Auth/AuthLogin"
 import RegisterForm from "../Common/Services/Auth/RegisterForm";
 import "../index.css";
-import ProtectedRoute from "../Common/AppTools/ProtectedRoute";
-import Profile from "./profile/profile.js"
+import ProfileHome from "./profile/ProfileHome.js";
+import ProfilePage from "./profile/ProfilePage.js";
 
 import {
     BrowserRouter as Router,
@@ -48,9 +48,8 @@ const Components = () => {
                     <Route path="/register">
                         <RegisterForm />
                     </Route>
-                    <ProtectedRoute path="/profile">
-                        <Profile />
-                    </ProtectedRoute>
+                    <Route exact path="/profile" component={ProfileHome} />
+                    <Route path="/profile/x" component={ProfilePage} />
                 </Switch>
                 <Footer />
             </div>
