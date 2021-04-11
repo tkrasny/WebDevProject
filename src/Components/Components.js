@@ -6,10 +6,11 @@ import About from "./about/about.js";
 import Schedule from "./slate/schedule.js";
 import Analysis from "./analysis/analysis.js";
 import FAQ from "./faq/faq.js";
-import AuthRegister from "../Common/Services/Auth/AuthRegister"
+import AuthRegister from "../Common/Services/Auth/AuthLogin"
 import RegisterForm from "../Common/Services/Auth/RegisterForm";
 import "../index.css";
 import ProtectedRoute from "../Common/AppTools/ProtectedRoute";
+import Profile from "./profile/profile.js"
 
 import {
     BrowserRouter as Router,
@@ -48,7 +49,7 @@ const Components = () => {
                         <RegisterForm />
                     </Route>
                     <ProtectedRoute path="/profile">
-                        <Analysis />
+                        <Profile />
                     </ProtectedRoute>
                 </Switch>
                 <Footer />

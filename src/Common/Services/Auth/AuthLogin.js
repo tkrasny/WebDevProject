@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { createUser } from "./AuthService";
+import { createUser, logIn } from "./AuthService";
 import LoginForm from "./LoginForm";
 
-const AuthRegister = () => {
-    const [newUser, setNewUser] = useState({
-        firstName: "",
-        lastName: "",
+const AuthLogin = () => {
+    const [user, setUser] = useState({
         email: "",
         password: ""
     });
@@ -15,18 +13,18 @@ const AuthRegister = () => {
 
     // useEffect that run when changes are made to the state variable flags
     useEffect(() => {
-        if (newUser && add) {
-            createUser(newUser).then((userCreated) => {
-                if (userCreated) {
+        if (user && add) {
+            logIn(user).then((userLoggedIn) => {
+                if (userLoggedIn) {
                     alert(
-                        `${userCreated.get("firstName")}, you successfully registered!`
+                        `${userLoggedIn.get("email")}, you successfully signed in!`
                     );
                 }
                 // TODO: redirect user to main app
                 setAdd(false);
             });
         }
-    }, [newUser, add]);
+    }, [user, add]);
 
     const onChangeHandler = (e) => {
         e.preventDefault();
@@ -34,22 +32,21 @@ const AuthRegister = () => {
         const { name, value: newValue } = e.target;
         console.log(newValue);
 
-        setNewUser({
-            ...newUser,
+        setUser({
+            ...user,
             [name]: newValue
         });
     };
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
-        console.log("submitted: ", e.target);
         setAdd(true);
     };
 
     return (
         <div>
             <LoginForm
-                user={newUser}
+                user={user}
                 onChange={onChangeHandler}
                 onSubmit={onSubmitHandler}
             />
@@ -57,4 +54,4 @@ const AuthRegister = () => {
     );
 };
 
-export default AuthRegister;
+export default AuthLogin;

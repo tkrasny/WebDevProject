@@ -20,3 +20,17 @@ export const createUser = (newUser) => {
             alert(`Error: ${error.message}`);
         });
 };
+
+// Used in login component
+export const logIn = (enteredUser) => {
+    return Parse.User
+        .logIn(enteredUser.email, enteredUser.password)
+        .then((user) => {
+            return user;
+        })
+        .catch((error) => {
+            alert(`Error: ${error.message}`);
+        });
+}
+
+
