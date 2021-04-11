@@ -1,15 +1,14 @@
-import React, { useEffect, useState,  } from "react";
-import { logIn } from "./AuthService";
-import LoginForm from "./LoginForm";
-import { useHistory } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { createUser } from "./AuthService.js";
+import RegisterForm from "./RegisterForm.js";
 
-const AuthLogin = () => {
+const AuthRegister = () => {
     const [user, setUser] = useState({
         email: "",
-        password: ""
+        password: "",
+        firstname: "",
+        lastname: "",
     });
-
-    const history = useHistory();
 
     // flags in the state to watch for add/remove updates
     const [add, setAdd] = useState(false);
@@ -17,13 +16,13 @@ const AuthLogin = () => {
     // useEffect that run when changes are made to the state variable flags
     useEffect(() => {
         if (user && add) {
-            logIn(user).then((userLoggedIn) => {
-                if (userLoggedIn) {
+            createUser(user).then((userCreated) => {
+                if (userCreated) {
                     alert(
-                        `${userLoggedIn.get("email")}, you successfully signed in!`
+                        `${userCreated.get("email")}, your account was created successfully!`
                     );
                 }
-                history.push("/")
+                // TODO: redirect user to main app
                 setAdd(false);
             });
         }
@@ -48,7 +47,7 @@ const AuthLogin = () => {
 
     return (
         <div>
-            <LoginForm
+            <RegisterForm
                 user={user}
                 onChange={onChangeHandler}
                 onSubmit={onSubmitHandler}
@@ -57,4 +56,4 @@ const AuthLogin = () => {
     );
 };
 
-export default AuthLogin;
+export default AuthRegister;

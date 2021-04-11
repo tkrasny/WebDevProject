@@ -6,8 +6,8 @@ import About from "./about/about.js";
 import Schedule from "./slate/schedule.js";
 import Analysis from "./analysis/analysis.js";
 import FAQ from "./faq/faq.js";
-import AuthRegister from "../Common/Services/Auth/AuthLogin"
-import RegisterForm from "../Common/Services/Auth/RegisterForm";
+import AuthLogin from "../Common/Services/Auth/AuthLogin.js";
+import AuthRegister from "../Common/Services/Auth/AuthRegister.js";
 import "../index.css";
 import ProfileHome from "./profile/ProfileHome.js";
 import ProfilePage from "./profile/ProfilePage.js";
@@ -40,16 +40,13 @@ const Components = () => {
                         <Analysis />
                     </Route>
                     <Route path="/login">
+                        <AuthLogin />
+                    </Route>
+                    <Route path="/register">
                         <AuthRegister />
                     </Route>
-                    <Route path="/register">
-                        <RegisterForm />
-                    </Route>
-                    <Route path="/register">
-                        <RegisterForm />
-                    </Route>
                     <Route exact path="/profile" component={ProfileHome} />
-                    <Route path="/profile/x" component={ProfilePage} />
+                    <Route path="/profile/:username" component={ProfilePage} />
                 </Switch>
                 <Footer />
             </div>
