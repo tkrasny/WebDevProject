@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { createUser } from "./AuthService.js";
 import RegisterForm from "./RegisterForm.js";
+import {useHistory} from "react-router-dom";
+import Parse from "parse";
 
 const AuthRegister = () => {
     const [user, setUser] = useState({
@@ -9,6 +11,8 @@ const AuthRegister = () => {
         firstname: "",
         lastname: "",
     });
+
+    const history = useHistory();
 
     // flags in the state to watch for add/remove updates
     const [add, setAdd] = useState(false);
@@ -21,8 +25,8 @@ const AuthRegister = () => {
                     alert(
                         `${userCreated.get("email")}, your account was created successfully!`
                     );
+                    history.push("/");
                 }
-                // TODO: redirect user to main app
                 setAdd(false);
             });
         }
@@ -44,6 +48,20 @@ const AuthRegister = () => {
         e.preventDefault();
         setAdd(true);
     };
+
+    if (Parse.User.current()){
+        var check = Parse.User.current().authenticated();
+    }
+    else{
+        var check = false;
+    }
+
+    useEffect(() => {
+        if (check) {
+            alert("Already logged in!")
+            history.push("/")
+        }
+    }, [check]);
 
     return (
         <div>

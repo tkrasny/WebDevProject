@@ -1,6 +1,7 @@
 import React from "react";
 import Parse from "parse";
 import { useHistory } from "react-router-dom";
+import "./profile.css"
 
 export function ProfilePage() {
     const history = useHistory()

@@ -1,8 +1,10 @@
 import React from "react";
+import "./auth.css"
 
 const RegisterForm = ({ user, onChange, onSubmit }) => {
     return (
-        <div>
+        <div className="authForm">
+            <br />
             <form onSubmit={onSubmit} autoComplete="off">
                 <div className="form-group">
                     <label>First Name</label>
@@ -58,6 +60,7 @@ const RegisterForm = ({ user, onChange, onSubmit }) => {
                     />
                 </div>
                 <div className="form-group">
+                    <br />
                     <button type="submit" className="btn btn-primary" onSubmit={onSubmit}>
                         Submit
                     </button>

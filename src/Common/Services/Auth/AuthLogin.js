@@ -2,6 +2,7 @@ import React, { useEffect, useState,  } from "react";
 import { logIn } from "./AuthService";
 import LoginForm from "./LoginForm";
 import { useHistory } from "react-router-dom";
+import Parse from "parse";
 
 const AuthLogin = () => {
     const [user, setUser] = useState({
@@ -22,8 +23,8 @@ const AuthLogin = () => {
                     alert(
                         `${userLoggedIn.get("email")}, you successfully signed in!`
                     );
+                    history.push("/");
                 }
-                history.push("/")
                 setAdd(false);
             });
         }
@@ -45,6 +46,20 @@ const AuthLogin = () => {
         e.preventDefault();
         setAdd(true);
     };
+
+    if (Parse.User.current()){
+        var check = Parse.User.current().authenticated();
+    }
+    else{
+        var check = false;
+    }
+
+    useEffect(() => {
+        if (check) {
+            alert("Already logged in!")
+            history.push("/")
+        }
+    }, [check]);
 
     return (
         <div>

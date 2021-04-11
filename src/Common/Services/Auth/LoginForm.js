@@ -8,6 +8,7 @@ const LoginForm = ({ user, onChange, onSubmit }) => {
 
     return (
         <div className="authForm">
+            <br />
             <form onSubmit={onSubmit} autoComplete="off">
                 <div className="form-group">
                     <label>Email</label>
