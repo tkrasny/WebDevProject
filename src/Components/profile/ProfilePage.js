@@ -11,9 +11,11 @@ export function ProfilePage() {
         history.push("/")
     }
 
+    var username = Parse.User.current().getEmail();
+
     return (
         <div>
-            <h1>PROFILE</h1>
+            <h1>Welcome, {username} to your profile!</h1>
             <button onClick={onClickHandler}>Logout</button>
         </div>
     );

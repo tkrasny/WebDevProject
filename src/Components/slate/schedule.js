@@ -2,12 +2,15 @@ import React, { useEffect, useState } from "react";
 
 import PreferenceForm from "./PreferenceForm.js"
 import {createPreference} from "../../Common/Services/PreferencesService.js";
+import {useHistory} from "react-router-dom";
 
 export function Schedule() {
     const [preferences, setPreferences] = useState([]);
 
+    const history = useHistory();
+
+
     const [add, setAdd] = useState(false);
-    const [myname, setMyname] = useState();
     const [sport, setSport] = useState();
     const [team, setTeam] = useState();
 
@@ -15,7 +18,6 @@ export function Schedule() {
         e.preventDefault();
         const inputs = e.target.getElementsByTagName('input');
         setAdd(true);
-        setMyname(inputs.myname.value);
         setSport(inputs.sport.value);
         setTeam(inputs.team.value);
     };
@@ -23,16 +25,19 @@ export function Schedule() {
     //TODO: Allow for partial submission of form to update existing preferences
     useEffect(() => {
         // Check for add flag and make sure all state variables are defined
-        if (myname && sport && team && add) {
-            createPreference(myname, sport, team).then((newPreference) => {
+        if (sport && team && add) {
+            createPreference(sport, team).then((newPreference) => {
                 setAdd(false);
-                // Add the newly created lesson to the lessons array
-                // to render the new list of lessons (thru spread/concatenation)
+                // Add the newly created Preference to the preferences array
                 setPreferences([...preferences, newPreference]);
-                alert("Successfully set preferences")
-            });
+                alert("Successfully set preferences");
+            })
+                .catch( () => {
+                    alert("Please sign in first");
+                    history.push("/login")
+                });
         }
-    }, [myname, team, sport, preferences, add]);
+    }, [team, sport, preferences, add]);
 
 
     return (

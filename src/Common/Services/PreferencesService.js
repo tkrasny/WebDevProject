@@ -2,14 +2,20 @@ import Parse from "parse";
 /* SERVICE FOR PARSE SERVER OPERATIONS */
 
 // CREATE operation - new lesson with userName to match
-export const createPreference = (username, sport, team) => {
-    console.log("Creating preference for user: ", username);
+export const createPreference = (sport, team) => {
     const Preference = Parse.Object.extend("Preference");
     const preference = new Preference();
+
+    var user = Parse.User.current()
+
+    if (!user){
+        return Promise.reject();
+    }
+
     // using setter to UPDATE the object
-    preference.set("username", username);
     preference.set("sport", sport);
     preference.set("team", team);
+    preference.set("user", user)
     return preference.save().then((result) => {
         // returns new preference object
         return result;

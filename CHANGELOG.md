@@ -11,5 +11,6 @@
 # Feature 5 - 0.3.0
 * Added authentication, including protected routes and a sign-in screen
 * Better defined relation between data classes
+    * removed "username" from preference class, swapped to pointer
 * Added User class to work with authentication
 * Added profile page, which is a protected route
