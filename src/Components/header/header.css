@@ -14,13 +14,7 @@
 
 .title {
     padding-left: 30px;
-    flex-basis: 65%;
-}
-
-.search{
-    margin: 40px;
-    flex-basis:20%;
-    padding-right: 10px;
+    flex-basis: 75%;
 }
 
 .login{
@@ -49,9 +43,22 @@
     font-family: "Racing Sans One";
 }
 
+.search {
+    flex-basis: 10%;
+    object-fit: contain;
+    max-width: 100%;
+    max-height: 100%;
+    cursor: pointer;
+}
+
 .profile {
     flex-basis: 10%;
     object-fit: contain;
     max-width: 100%;
     max-height: 100%;
+}
+
+.popupbox {
+    position: fixed;
+    top: 400px;
 }

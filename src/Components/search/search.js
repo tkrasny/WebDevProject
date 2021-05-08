@@ -1,27 +1,38 @@
 import React, { useEffect, useState } from "react";
-import ".././header/header.css"
+import ".././header/header.css";
+import { useHistory } from "react-router-dom";
 
 import SearchForm from "./searchform";
 
 export function Search() {
+    const history = useHistory();
+
     const [query, setQuery] = useState([]);
+    const [add, setAdd] = useState(false);
 
-    {/* TODO: Index information on website to allow searching to return something */}
-    // Handler to handle event passed from child submit button
-    const onClickHandler = (e) => {
+    useEffect(() => {
+        if (add){
+            alert('pushed')
+            //let path = `/profile/${query}`;
+            let path = `/analysis`;
+            history.push({
+                pathname: path
+            });
+        }
+        setAdd(false);
+    }, [add, query, history]);
+
+    const onSubmitHandler = (e) => {
         e.preventDefault();
+        setAdd(true);
     };
 
-    // Handler to track changes to the child input text
     const onChangeHandler = (e) => {
-        e.preventDefault();
-        console.log(e.target.value);
-        // Continuously updating name to be added on submit
-        setQuery(e.target.value);
-    };
+        setQuery(e.target.value)
+    }
 
     return (
-        <SearchForm onClick={onClickHandler}  onChange={onChangeHandler}/>
+        <SearchForm onChange={onChangeHandler} onSubmit={onSubmitHandler}/>
     );
 
 

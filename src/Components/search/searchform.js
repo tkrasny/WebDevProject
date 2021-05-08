@@ -1,15 +1,12 @@
 import React from "react";
 
-import ".././header/header.css"
+import "./search.css"
 
-const SearchForm = ({ onClick, onChange }) => {
+const SearchForm = ({ onChange,  onSubmit }) => {
     return (
-        <header className="headerBar">
-            <form onClick={onClick}>
-                <input className="search" placeholder="Search"
-                       onChange={onChange}/>
-            </form>
-        </header>
+        <form onSubmit={onSubmit} onChange={onChange}>
+            <input className="searchButton" placeholder="Search"/>
+        </form>
     );
 };
 
