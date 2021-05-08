@@ -9,6 +9,7 @@
     'header'
     'main'
     'footer';
+    margin: auto;
 }
 
 #app > header {

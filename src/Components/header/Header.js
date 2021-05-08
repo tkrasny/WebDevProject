@@ -24,12 +24,6 @@ export function Header() {
         setimgClicked(true)
     };
 
-    useEffect(() => {
-        if (imgClicked){
-            alert('clicked')
-        }
-    }, [imgClicked]);
-
     // Header bar with title, search, and login
     return (
         <div>
@@ -51,7 +45,9 @@ export function Header() {
                     </figure>
                 </div>
             </div>,
-            {imgClicked ? <PopUp /> : null}
+            <div className="searchPopup">
+                {imgClicked ? <PopUp /> : null}
+            </div>
         </div>
     );
 };
