@@ -4,7 +4,7 @@
 #HeaderBar {
     display: flex;
     flex-direction: row;
-    margin-top: -10px;
+    margin-top: -30px;
     margin-right: -20px;
     margin-left: -20px;
     background-color: #660708;
@@ -28,6 +28,7 @@
     border-radius: 10px;
     padding-right: 10px;
     padding-left: 10px;
+    filter: drop-shadow(5px 5px 5px #222);
 }
 
 .login:hover{
@@ -41,6 +42,7 @@
     cursor: pointer;
     font-size: 35px;
     font-family: "Racing Sans One";
+    filter: drop-shadow(5px 5px 5px #222);
 }
 
 .search {
