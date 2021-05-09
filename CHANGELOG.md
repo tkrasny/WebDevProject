@@ -14,3 +14,8 @@
     * removed "username" from preference class, swapped to pointer
 * Added User class to work with authentication
 * Added profile page, which is a protected route
+
+# Feature 6 - 0.4.0
+* Added search functionality for page-based searching using Algolia's InstantSearch
+* Added popup window to house the new search functionality
+* Re-styled homepage to clean up aesthetic.

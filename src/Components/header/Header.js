@@ -44,7 +44,7 @@ export function Header() {
                         </Link>
                     </figure>
                 </div>
-            </div>,
+            </div>
             <div className="searchPopup">
                 {imgClicked ? <PopUp /> : null}
             </div>

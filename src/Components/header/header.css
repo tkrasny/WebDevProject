@@ -14,7 +14,7 @@
 
 .title {
     padding-left: 30px;
-    flex-basis: 75%;
+    flex-basis: 70%;
 }
 
 .login{
@@ -58,8 +58,4 @@
     object-fit: contain;
     max-width: 100%;
     max-height: 100%;
-}
-
-.searchPopup {
-
 }
