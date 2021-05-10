@@ -1,8 +1,6 @@
-import React from 'react';
 import * as Env from "../../../environments";
 import Parse from "parse";
 import algoliasearch from "algoliasearch";
-
 
 export const IndexData = () => {
 
@@ -27,9 +25,7 @@ export const IndexData = () => {
         )
         const index = client.initIndex('webdevproject');
 
-        index.saveObjects(pageNames).then(() => {
-            alert('Parse<>Algolia import done');
-        }).catch( (err) => {
+        index.saveObjects(pageNames).catch( (err) => {
             alert(JSON.stringify(err))
         });
 

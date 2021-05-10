@@ -36,7 +36,7 @@ export function Schedule() {
                     history.push("/login")
                 });
         }
-    }, [team, sport, preferences, add]);
+    }, [team, sport, preferences, add, history]);
 
 
     return (

@@ -26,9 +26,7 @@ export function Homepage() {
         history.push(path);
     }
 
-    {/* TODO: Improve quality of images, ensure copyright free */}
-
-    {/* Displays the main body of the home page as a css grid*/}
+    // Displays the main body of the home page as a css grid
     return (
     <main id="homepage">
         <div className="container container_1">

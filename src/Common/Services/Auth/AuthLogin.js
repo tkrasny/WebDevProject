@@ -1,4 +1,4 @@
-import React, { useEffect, useState,  } from "react";
+import React, { useEffect, useState } from "react";
 import { logIn } from "./AuthService";
 import LoginForm from "./LoginForm";
 import { useHistory } from "react-router-dom";
@@ -28,7 +28,7 @@ const AuthLogin = () => {
                 setAdd(false);
             });
         }
-    }, [user, add]);
+    }, [user, add, history]);
 
     const onChangeHandler = (e) => {
         e.preventDefault();
@@ -47,11 +47,13 @@ const AuthLogin = () => {
         setAdd(true);
     };
 
+    var check
+
     if (Parse.User.current()){
-        var check = Parse.User.current().authenticated();
+        check = Parse.User.current().authenticated();
     }
     else{
-        var check = false;
+        check = false;
     }
 
     useEffect(() => {
@@ -59,7 +61,7 @@ const AuthLogin = () => {
             alert("Already logged in!")
             history.push("/")
         }
-    }, [check]);
+    }, [check, history]);
 
     return (
         <div>

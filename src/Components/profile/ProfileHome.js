@@ -5,13 +5,16 @@ import Parse from "parse";
 
 const ProfileHome = () => {
 
+    var check
+    var username
+
     if (Parse.User.current()){
-        var check = Parse.User.current().authenticated();
-        var username = Parse.User.current().getEmail();
+        check = Parse.User.current().authenticated();
+        username = Parse.User.current().getEmail();
     }
     else{
-        var check = false;
-        var username = "";
+        check = false;
+        username = "";
     }
 
     var path = "/profile/" + username
