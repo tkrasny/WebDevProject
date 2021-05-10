@@ -22,7 +22,6 @@ export function Schedule() {
         setTeam(inputs.team.value);
     };
 
-    //TODO: Allow for partial submission of form to update existing preferences
     useEffect(() => {
         // Check for add flag and make sure all state variables are defined
         if (sport && team && add) {

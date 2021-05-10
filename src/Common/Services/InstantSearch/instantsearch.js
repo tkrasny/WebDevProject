@@ -1,17 +1,22 @@
-import React, { useState }from 'react'
-import { InstantSearch, Hits, SearchBox, } from 'react-instantsearch/dom'
+import React, { useEffect } from 'react'
+import { InstantSearch, Hits, SearchBox } from 'react-instantsearch/dom'
 import { connectStateResults } from 'react-instantsearch/connectors'
 
 import algoliasearch from 'algoliasearch/lite';
 import * as Env from "../../../environments";
 import "./instantSearch.css"
-import { useHistory, Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { IndexData } from "./pageindex.js";
 
 function FancySearch() {
     const searchClient = algoliasearch(
         Env.ALGO_APP_ID,
         Env.ALGO_ADMIN_KEY
     );
+
+    useEffect(() => {
+        IndexData();
+    });
 
     const Results = connectStateResults(
         ({ searchState, searchResults, children }) =>
