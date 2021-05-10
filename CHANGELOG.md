@@ -17,5 +17,7 @@
 
 # Feature 6 - 0.4.0
 * Added search functionality for page-based searching using Algolia's InstantSearch
+    * Search re-indexes upon every user-click of search function
+    * Search pulls page list from Parse backend
 * Added popup window to house the new search functionality
 * Re-styled homepage to clean up aesthetic.
