@@ -1,19 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 
 import "./popup.css"
 
 import FancySearch from "../InstantSearch/instantsearch.js"
 
 export function PopUp() {
-    const [showPop, setshowPop] = useState(true)
+
+    const reload=()=>window.location.reload();
 
     const onClick = () => {
-        setshowPop(false)
+        const modal = document.querySelector(".modal")
+        modal.style.display = "none";
+        reload()
     };
 
     return (
         <div>
-            {showPop ? (
             <div className="modal modalBox">
                 <button className="Close" onClick={onClick}>Close</button>
                 <div className="content">
@@ -21,9 +23,6 @@ export function PopUp() {
                    <FancySearch/>
                 </div>
             </div>
-            ) :
-            null
-        }
         </div>
     )
 }
