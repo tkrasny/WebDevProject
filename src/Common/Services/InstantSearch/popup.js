@@ -6,12 +6,9 @@ import FancySearch from "../InstantSearch/instantsearch.js"
 
 export function PopUp() {
 
-    const reload=()=>window.location.reload();
-
     const onClick = () => {
         const modal = document.querySelector(".modal")
         modal.style.display = "none";
-        reload()
     };
 
     return (
