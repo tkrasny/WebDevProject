@@ -1,4 +1,10 @@
-# Getting Started with Create React App
+# BetHuntr - Modern Web Development Project - Feature 6
+This is tkrasny's branch of BetHuntr, which adds in a search feature that automatically
+indexes data stored in a parse database for searching using Algolia.
+
+---
+
+# GettingStarted with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
