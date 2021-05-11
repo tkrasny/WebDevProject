@@ -37,6 +37,7 @@ export function Analysis() {
                 const FTM = row.get("FTM");
                 const TeamName = row.get("TeamName");
                 const TeamID = row.get("TeamID");
+                const TeamAbbr = row.get("TeamAbbr");
 
                 const rowJson = {
                     "OREB": OREB,
@@ -64,6 +65,7 @@ export function Analysis() {
                     "FTM": FTM,
                     "TeamName": TeamName,
                     "TeamID": TeamID,
+                    "TeamAbbr": TeamAbbr
                 }
                 setRows(rows => [...rows, rowJson])
             })
@@ -72,6 +74,7 @@ export function Analysis() {
 
     return (
         <div>
+            <h2>Team wins over the last 15 games</h2>
             <BarChart data={rows} />
         </div>
     );

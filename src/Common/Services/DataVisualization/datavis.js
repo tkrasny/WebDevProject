@@ -6,14 +6,13 @@ export function BarChart({ data }) {
     const ref = useD3(
         (svg) => {
             const height = 500;
-            const width = 1000;
+            const width = 900;
             const margin = { top: 20, right: 30, bottom: 30, left: 40 };
 
-            const x = d3
-                .scaleBand()
-                .domain(data.map((d) => d.TeamName))
-                .rangeRound([margin.left, width - margin.right])
-                .padding(0.1);
+            const x = d3.scaleBand()
+                .domain(data.map((d) => d.TeamAbbr))
+                .range([50, 800])
+                .padding([0.1])
 
             const y1 = d3
                 .scaleLinear()
@@ -24,12 +23,6 @@ export function BarChart({ data }) {
                 g.attr("transform", `translate(0,${height - margin.bottom})`).call(
                     d3
                         .axisBottom(x)
-                        .tickValues(
-                            d3
-                                .ticks(...d3.extent(x.domain()), width / 40)
-                                .filter((v) => x(v) !== undefined)
-                        )
-                        .tickSizeOuter(0)
                 );
 
             const y1Axis = (g) =>
@@ -58,10 +51,11 @@ export function BarChart({ data }) {
                 .data(data)
                 .join("rect")
                 .attr("class", "bar")
-                .attr("x", (d) => x(d.TeamName))
+                .attr("x", (d) => x(d.TeamAbbr))
                 .attr("width", x.bandwidth())
                 .attr("y", (d) => y1(d.W))
                 .attr("height", (d) => y1(0) - y1(d.W));
+
         },
         [data.length]
     );
