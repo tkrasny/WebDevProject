@@ -5,20 +5,9 @@ import { Plot } from "d3plus-react";
 import Parse from "parse";
 
 export function Analysis() {
-    const methods = {
-        groupBy: "id",
-        data: [
-            {id: "LAL", x: 357, y: 210, value: 5},
-            {id: "MEM",  x: 401, y: 192, value: 8},
-            {id: "NOP", x: 402, y: 224, value: 6},
-            {id: "BOS", x: 364, y: 220, value: 8},
-            {id: "IND", x: 433, y: 194, value: 7},
-            {id: "HOU", x: 364, y: 226, value: 2}
-        ],
-        size: d => d.value
-    };
-
     const [rows, setRows] = useState([]);
+    const [methods, setMethods] = useState([]);
+    const [finalMethod, setFinalMethod] = useState();
 
     useEffect(() => {
         const NbaTeamStatsObj = Parse.Object.extend("NBATeamStats");
@@ -80,9 +69,24 @@ export function Analysis() {
                     "TeamID": TeamID,
                     "TeamAbbr": TeamAbbr
                 }
+
+                const newMethod = {
+                    "id": TeamAbbr,
+                    "x": AST,
+                    "y": TOV,
+                    "value": W
+                }
                 setRows(rows => [...rows, rowJson])
+                setMethods(methods => [...methods, newMethod])
             })
         })
+
+        setFinalMethod({
+            "groupBy": "id",
+            "data": methods,
+            "size": d => d.value
+        })
+        //
     }, [])
 
     return (
@@ -90,7 +94,7 @@ export function Analysis() {
             <h2>Team wins over the last 15 games</h2>
             <BarChart data={rows} />
             <h2>Turnovers vs. assists in the last 15 games</h2>
-            <Plot config={methods} />
+            <Plot config={finalMethod} />
         </div>
     );
 }
