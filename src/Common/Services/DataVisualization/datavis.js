@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import * as d3 from 'd3'
-import Parse from "parse";
+import { Plot } from "d3plus-react";
+
 
 export function BarChart({ data }) {
     const ref = useD3(

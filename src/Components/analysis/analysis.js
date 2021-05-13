@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./analysis.css";
-import { BarChart } from "../../Common/Services/DataVisualization/datavis";
+import { BarChart, PlotChart } from "../../Common/Services/DataVisualization/datavis";
 import { Plot } from "d3plus-react";
 import Parse from "parse";
 
 export function Analysis() {
     const [rows, setRows] = useState([]);
-    const [methods, setMethods] = useState([]);
-    const [finalMethod, setFinalMethod] = useState();
+
 
     useEffect(() => {
         const NbaTeamStatsObj = Parse.Object.extend("NBATeamStats");
@@ -15,6 +14,7 @@ export function Analysis() {
         query.find().then((objects) => {
             objects.forEach((row) => {
                 const OREB = row.get("OREB");
+
                 const BLKA = row.get("BLKA");
                 const FGA = row.get("FGA");
                 const BLK = row.get("BLK");
@@ -77,24 +77,17 @@ export function Analysis() {
                     "value": W
                 }
                 setRows(rows => [...rows, rowJson])
-                setMethods(methods => [...methods, newMethod])
             })
         })
 
-        setFinalMethod({
-            "groupBy": "id",
-            "data": methods,
-            "size": d => d.value
-        })
-        //
+
     }, [])
+
 
     return (
         <div>
             <h2>Team wins over the last 15 games</h2>
             <BarChart data={rows} />
-            <h2>Turnovers vs. assists in the last 15 games</h2>
-            <Plot config={finalMethod} />
         </div>
     );
 }
